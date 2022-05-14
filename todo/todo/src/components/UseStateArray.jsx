@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 const UseStatearray = () => {
+ 
   const bioData = [
     {
       id: 0,
@@ -13,6 +14,7 @@ const UseStatearray = () => {
       age: 28,
     },
   ];
+
   console.log("UseStatearray");
   const [myArray, setmyArray] = useState(bioData);
   const clearArray = () => {
@@ -26,7 +28,7 @@ const UseStatearray = () => {
     setmyArray(MyNewarray);
   };
   // console.log("removeElm");
-  return (
+  return (  
     <>
       {myArray.map((curElm) => {
         return (

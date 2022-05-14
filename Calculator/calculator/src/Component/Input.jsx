@@ -3,15 +3,25 @@ import React, { useState } from "react";
 const Input = () => {
   let[state, setstate] = useState("");
   const [add, setadd] = useState("");
+
   const handleoperator = (e) => {
     let res = state;
     res = res.split("+").map(Number);
-    res = res[0] + res[1];
-  setstate(res);
+    var sum=0;
+    for(var i =0;i<res.length;i++){
+      sum+=res[i];
+    }
+    console.log(sum);
+    setstate(sum);
   };
-  const addition =(e) =>{
+  const addition =(e) =>
+  {
       setstate(state+=e.target.value)
   }
+  const substraction =(e) => {
+      setstate((state -= e.target.value));
+  }
+  
   return (
     <div>
       <div>{state}</div>
@@ -26,7 +36,7 @@ const Input = () => {
       <input type="submit" value="7" onClick={addition} />
       <input type="submit" value="8" onClick={addition} />
       <input type="submit" value="9" onClick={addition} />
-      <button>-</button>
+      <button onClick={substraction} >-</button>
       <button>*</button>
       <button onClick={handleoperator}>=</button>
       <div>{add}</div>
