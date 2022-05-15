@@ -13,16 +13,18 @@ const Usestatearray = () => {
         age: 26,
       },
     ];
-    const [myArray,setmyArray] = useState([biodata])
+    const [myArray,setmyArray] = useState(biodata)
    
     const remove = () => {
-        if(myArray != []){
-setmyArray([]);
-        }else{
-            console.log(biodata);
-         setmyArray(biodata);   
+        setmyArray([]);
         }
-    
+    const delet = (id) => {
+const myNewArray = myArray.filter((e)=>{
+    return e.id !== id;
+ console.log(id) 
+})
+console.log("after",myNewArray)
+setmyArray(myNewArray);
     }
   return (
     <>
@@ -30,6 +32,7 @@ setmyArray([]);
         return (
           <h1 key={e.id}>
             id:{e.id} myName:{e.myName} age:{e.age}
+            <button onClick={()=>delet(e.id)}>click</button>
           </h1>
         );
       })}
@@ -38,4 +41,4 @@ setmyArray([]);
   );
 }
 
-export default Usestatearray
+export default Usestatearray;
