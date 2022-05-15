@@ -2,8 +2,7 @@ import React, { useState } from "react";
 
 const Input = () => {
   let[state, setstate] = useState("");
-  const [add, setadd] = useState("");
-
+  const [add, setadd] = useState(""); 
   const handleoperator = (e) => {
     let res = state;
     res = res.split("+").map(Number);
@@ -17,9 +16,6 @@ const Input = () => {
   const addition =(e) =>
   {
       setstate(state+=e.target.value)
-  }
-  const substraction =(e) => {
-      setstate((state -= e.target.value));
   }
   
   return (
@@ -36,8 +32,8 @@ const Input = () => {
       <input type="submit" value="7" onClick={addition} />
       <input type="submit" value="8" onClick={addition} />
       <input type="submit" value="9" onClick={addition} />
-      <button onClick={substraction} >-</button>
-      <button>*</button>
+      <button>-</button>
+      <button >*</button>
       <button onClick={handleoperator}>=</button>
       <div>{add}</div>
     </div>
