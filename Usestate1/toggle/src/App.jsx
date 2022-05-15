@@ -1,7 +1,7 @@
 
 import './App.css'
 import RulesHooks from "./Component/RulesHooks";
-
+import Usestatearray from "./Component/Usestatearray"
 function App() {
 //   const [count, setCount] = useState("shubham")
 // const handlechange =()=>{
@@ -13,7 +13,8 @@ function App() {
     <div className="App">
       {/* <h2>{count}</h2>
       <button onClick={handlechange}>change</button> */}
-      <RulesHooks/>
+      {/* <RulesHooks/> */}
+      <Usestatearray/>
     </div>
   );
 }
