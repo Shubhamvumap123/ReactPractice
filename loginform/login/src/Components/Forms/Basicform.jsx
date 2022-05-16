@@ -1,43 +1,54 @@
-import React ,{useState}from 'react'
+import React, { useState }from 'react'
 
 const Basicform = () => {
-  const[email,setemail] = useState("");
-  const [password,setpassword] = useState("");
-  let [allentry, setallentry] = useState([]);
-const submitform =(e)=>{
-  e.preventDefault();
-const newEntry = {email:email ,password:password};
-setallentry([...allentry,newEntry]);
-
-}
+  const [Email, setEmail] = useState("");
+    const [Pass, setPass] = useState("");
+const [data, setData] = useState([])
+    const handlechange = (e) => {
+      e.preventDefault();
+      const newEntry = {id : new Date().getTime().toString(),email: Email, password: Pass };
+        setData([...data, newEntry]);
+    }
   return (
     <div>
-      <form action="" onSubmit={submitform}>
+      <form action="">
         <div>
           <label htmlFor="email">Email</label>
-          <input type="text" name="email" id="email" value={email} onChange={(e)=>setemail(e.target.value)}/>
-        </div>
-        <div>
-          <label htmlFor="password">password</label>
-          <input type="text" name="password" id="password" value={password} onChange={(e)=>setpassword(e.target.value)} />
-        </div>
-        <input type="submit" />
-      </form>
-      <div>
-        {
-          allentry.map((curelem)=>{
-            return (
-              <div >
-                <p>{curelem.email}</p>
-                <p>{curelem.password}</p>
-              </div>
-            );
+          <input
+            type="text"
+            name="email"
+            id="email"
+            value={Email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
 
-          })
-        }
-      </div>
+          <label htmlFor="Password">Password</label>
+          <input
+            type="text"
+            name="password"
+            id="password"
+            value={Pass}
+            onChange={(e) => setPass(e.target.value)}
+          />
+        </div>
+       <button type="submit" onClick={handlechange}>submit</button>
+        <div>{data.email}</div>
+      </form>
+      {
+        data.map((e)=>{
+          return (
+            <div key={e.id}>
+              <h1>
+                {e.Email}
+                {e.Pass}
+              </h1>
+
+            </div>
+          );
+        })
+      }
     </div>
   );
 }
 
-export default Basicform ;
+export default Basicform;
