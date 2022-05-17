@@ -22,6 +22,7 @@ const [suggetions,setsuggetions] =useState([]);
         return user.email.match(regrex);
       })
     }
+    
 console.log(matches);
     setsuggetions(matches);
      settext(text);
