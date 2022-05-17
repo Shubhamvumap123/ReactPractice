@@ -6,9 +6,15 @@ const Basicform = () => {
 const [data, setData] = useState([])
     const handlechange = (e) => {
       e.preventDefault();
-      const newEntry = {id : new Date().getTime().toString(),email: Email, password: Pass };
+      if (Email && Pass) {
+        const newEntry = { id: new Date().getTime().toString(), Email, Pass };
         setData([...data, newEntry]);
-    }
+        console.log(newEntry);
+      }else{
+        alert('Please enter data');
+      }
+      }
+    
   return (
     <div>
       <form action="">
@@ -16,33 +22,29 @@ const [data, setData] = useState([])
           <label htmlFor="email">Email</label>
           <input
             type="text"
-            name="email"
             id="email"
             value={Email}
             onChange={(e) => setEmail(e.target.value)}
           />
-
           <label htmlFor="Password">Password</label>
           <input
             type="text"
-            name="password"
             id="password"
             value={Pass}
             onChange={(e) => setPass(e.target.value)}
           />
         </div>
        <button type="submit" onClick={handlechange}>submit</button>
-        <div>{data.email}</div>
       </form>
       {
         data.map((e)=>{
           return (
             <div key={e.id}>
               <h1>
+                {e.id}
                 {e.Email}
                 {e.Pass}
               </h1>
-
             </div>
           );
         })
@@ -50,5 +52,4 @@ const [data, setData] = useState([])
     </div>
   );
 }
-
 export default Basicform;

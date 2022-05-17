@@ -59,7 +59,7 @@ console.log("data", data);
   return (
     <div className="App">
 
-<button onClick={handleChange}>{}</button>
+
 
      <button onClick={handleSorting}>high</button>
       <button onClick={handleSorting1}>low</button>
