@@ -11,6 +11,7 @@ const UseEffectApi = () => {
               showLoading(false);
         }catch (error) {
            showLoading(false);
+           
             console.log("my error is:",error);
         }
     }
@@ -23,7 +24,7 @@ return (
   <h1>
     <Loading />
   </h1>
-)
+); 
     }
     else
     {

@@ -2,9 +2,9 @@ import React, { useState }from 'react'
 
 const Basicform = () => {
   const [Email, setEmail] = useState("");
-    const [Pass, setPass] = useState("");
-const [data, setData] = useState([])
-    const handlechange = (e) => {
+  const [Pass, setPass] = useState("");
+  const [data, setData] = useState([])
+  const handlechange = (e) => {
       e.preventDefault();
       if (Email && Pass) {
         const newEntry = { id: new Date().getTime().toString(), Email, Pass };
