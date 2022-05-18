@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Loading from './Github/loading';
+import Loading from './Github/Loading';
 import GithubUser from "./Github/githubUser"
 const UseEffectApi = () => {
     const [users, setUsers] = useState([]);
@@ -19,10 +19,15 @@ const UseEffectApi = () => {
     }, [])
 
     if(loading) {
-return <Loading/>
-    }else{
-
-    
+return (
+  <h1>
+    {" "}
+    <Loading />
+  </h1>
+); 
+    }
+    else
+    {
     return (
       <>
         <GithubUser users={users} />
