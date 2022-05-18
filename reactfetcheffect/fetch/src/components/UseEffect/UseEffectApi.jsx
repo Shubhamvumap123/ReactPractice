@@ -6,25 +6,24 @@ const UseEffectApi = () => {
     const [loading, showLoading] = useState(true);
     const getUsers = async () => {
         try {
-            showLoading(false);
               const response = await fetch("https://api.github.com/users");
               setUsers(await response.json());
-        } catch (error) {
+              showLoading(false);
+        }catch (error) {
            showLoading(false);
             console.log("my error is:",error);
         }
     }
     useEffect(() => {
-        getUsers();
+      setTimeout(() => { getUsers()},10000)
     }, [])
 
     if(loading) {
 return (
   <h1>
-    {" "}
     <Loading />
   </h1>
-); 
+)
     }
     else
     {
