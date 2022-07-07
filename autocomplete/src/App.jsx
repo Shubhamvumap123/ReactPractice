@@ -10,12 +10,13 @@ const [suggetions,setsuggetions] =useState([]);
    const loadUsers = async() =>{
      const response = await axios.get("https://reqres.in/api/users");
      setusers(response.data.data);
-     
    }
    loadUsers();
   }, []);
+
   const onChange = (text) => {
     let matches=[];
+    console.log(text)
     if(text.length > 0) {
       matches = users.filter(user =>{
         const regrex = new RegExp(`${text}`,"gi");
@@ -27,6 +28,7 @@ console.log(matches);
     setsuggetions(matches);
      settext(text);
   }
+
 
   return (
     <div className="App">
